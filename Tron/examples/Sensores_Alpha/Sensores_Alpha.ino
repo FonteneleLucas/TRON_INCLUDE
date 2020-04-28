@@ -15,7 +15,7 @@ void loop() {
 
   Serial.println(sensor.inclinacao('C'));
 
-  if (!sensor.inclinacao('C')) {
+  if (sensor.inclinacao('C')) {
     sensor.led_acender('B', "blue");
     sensor.buzzer_tocar('D', 300);
     sensor.laser_acender('A');    
@@ -25,5 +25,4 @@ void loop() {
     sensor.buzzer_desligar('D');
     sensor.laser_apagar('A');
   }
-  
 }

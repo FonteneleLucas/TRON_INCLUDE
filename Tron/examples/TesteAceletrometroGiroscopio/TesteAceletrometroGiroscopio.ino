@@ -1,3 +1,10 @@
+/*
+  TESTE: 
+    ACELEROMETRO
+    GIROSCOPIO
+    Porta A:
+*/
+
 
 #include <Tron.h>
 
