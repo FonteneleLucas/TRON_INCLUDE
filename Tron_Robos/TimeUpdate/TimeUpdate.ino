@@ -1,15 +1,20 @@
+/*
+    Update Code Time TRON
+    by Lucas Fontenele
+*/
+
 
 //Define os pinos para fita de LED
 #define GND 3 //O-1
 #define RED 5 //O-2 ANTES 5
-#define GRE 9 //O-3
-#define BLU 6 //O-4
+#define GRE 6 //O-3
+#define BLU 9 //O-4
 
-#define pino_trigger 2
-#define pino_echo 4
+#define pino_trigger    2
+#define pino_echo       4
 
-#define pino_trigger_2 7
-#define pino_echo_2 8
+#define pino_trigger_2  7
+#define pino_echo_2     8
 
 int s1 = 0;
 int s2 = 0;
@@ -22,10 +27,21 @@ String key = "";
 void setup() {
   Serial.begin(9600);
   Serial.setTimeout(2);
+  pinMode(GND, OUTPUT);
+  pinMode(RED, OUTPUT);
+  pinMode(GRE, OUTPUT);
+  pinMode(BLU, OUTPUT);
   pinMode(pino_trigger, OUTPUT);
   pinMode(pino_trigger_2, OUTPUT);
   pinMode(pino_echo, INPUT);
   pinMode(pino_echo_2, INPUT);
+
+  /*while (true) {
+    Serial.print(dist(pino_trigger, pino_echo));
+    Serial.print("\t");
+    Serial.println(dist(pino_trigger_2, pino_echo_2));
+    }*/
+
 }
 
 void loop() {
@@ -124,15 +140,10 @@ void initSensors() {
 }
 
 void green() {
-  digitalWrite(GND, 255);
-  digitalWrite(RED, 0);
-  digitalWrite(GRE, 255);
-  digitalWrite(BLU, 255);
-
-  digitalWrite(GND, 255); // GND.
-  digitalWrite(RED, 255); // Red.
-  digitalWrite(GRE, 0); // Green.
-  digitalWrite(RED, 255); // Blue.
+  analogWrite(GND, 255);
+  analogWrite(RED, 255);  //OK
+  analogWrite(GRE, 0);  //OK
+  analogWrite(BLU, 255);
 }
 
 void red() {
